@@ -23,7 +23,7 @@ import org.scalacheck._
 import java.time._
 import java.time.format._
 
-import biz.gsconsulting.add_minutes._
+import biz.gsconsulting.add_minutes.scaladsl._
 
 // Wrap our time strings to prevent scalacheck from doing silly shrinks
 case class TimeString(time: String)
@@ -69,9 +69,9 @@ class AdderSpec extends FunSpec
       //to really find edge cases.
       val IllegalTimes = Gen.alphaNumStr suchThat (legalTime.findFirstIn(_).isEmpty)
 
-      it("Throws a DateTimeParseException if the time is illegal") {
+      it("Throws a TimeParseFailure if the time is illegal") {
         forAll (IllegalTimes) { time =>
-          a [DateTimeParseException] should be thrownBy adder.addMinutes(time, 0)
+          a [ParseTime.TimeParseFailure] should be thrownBy adder.addMinutes(time, 0)
         }
       }
     }
