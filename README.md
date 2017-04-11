@@ -1,7 +1,17 @@
 TemporalAdder
 =============
 
-*A simple class for adding offsets to times"
+*A simple class for adding offsets to times*
+
+What is this?
+-------------
+
+It's mostly an exercise in using Scala parser combinators to parse a very
+specific time format out of a string. I wrote this as a coding exercise for a
+potential employer, but thought the solution was worth keeping.
+
+Don't use this for, well, anything. But if you want to, it's licensed under the
+Apache license. I won't be publishing binary packages of it, so don't ask.
 
 Getting Started
 ---------------
